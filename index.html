@@ -1,0 +1,2856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- SPA redirect handler for GitHub Pages (defensive; main.tsx also restores) -->
+    <script>
+      (function () {
+        // Skip if ?src= already present on direct visit
+        if (window.location.search && window.location.search.indexOf("src=") !== -1) return;
+
+        // v1: structured JSON redirect
+        var raw, data;
+        try {
+          raw = sessionStorage.getItem("spa_redirect_v1");
+        } catch (e) {}
+        if (raw) {
+          // Don't remove — let main.tsx consume it (it will clean up)
+          try {
+            data = JSON.parse(raw);
+          } catch (e) {}
+          if (data && Date.now() - data.ts < 30000) {
+            var target = data.path || "/";
+            var cur = new URLSearchParams(window.location.search);
+            var red = new URLSearchParams(data.search || "");
+            red.forEach(function (v, k) {
+              if (!cur.has(k)) cur.set(k, v);
+            });
+            var qs = cur.toString();
+            if (qs) target += "?" + qs;
+            if (data.hash) target += data.hash;
+            window.history.replaceState(null, null, target);
+          }
+        } else {
+          // Backward compat: old format (only when no existing query)
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== "/" && !window.location.search) {
+            window.history.replaceState(null, null, "/" + redirect);
+          }
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to third-party origins -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <title>Electrician &amp; EV Solutions Georgia | Integrity EV Solutions</title>
+    <meta
+      name="description"
+      content="Licensed electrician in Georgia offering EV charger installation, generators, panel upgrades, Tesla Powerwall, and full electrical services. Free estimates!"
+    />
+    <meta name="author" content="Integrity EV Solutions" />
+    <meta
+      name="keywords"
+      content="electrician Georgia, EV charger installation, generator installation, Tesla Powerwall, electrical panel upgrade, Atlanta electrician, licensed electrician, electrical services Georgia"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRSTDB8HTH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TRSTDB8HTH");
+      gtag("config", "AW-17428301350");
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "26026085723726434");
+      fbq("track", "PageView");
+    </script>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="/cody-lander.jpg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.integrityevsolutions.com/" />
+    <meta property="og:title" content="Electrician &amp; EV Solutions Georgia | Integrity EV Solutions" />
+    <meta
+      property="og:description"
+      content="Licensed electrician in Georgia offering EV charger installation, generators, panel upgrades, Tesla Powerwall, and full electrical services. Free estimates!"
+    />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.integrityevsolutions.com/" />
+    <meta property="twitter:title" content="Electrician &amp; EV Solutions Georgia | Integrity EV Solutions" />
+    <meta
+      property="twitter:description"
+      content="Licensed electrician in Georgia offering EV charger installation, generators, panel upgrades, Tesla Powerwall, and full electrical services. Free estimates!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.integrityevsolutions.com/#org",
+            "name": "Integrity EV Solutions",
+            "url": "https://www.integrityevsolutions.com/",
+            "logo": "https://www.integrityevsolutions.com/integrity-logo.png",
+            "foundingDate": "2022",
+            "founder": { "@id": "https://www.integrityevsolutions.com/#cody" },
+            "sameAs": ["https://www.facebook.com/IntegrityEVSolutions", "https://www.instagram.com/integrityevsolutions"]
+          },
+          {
+            "@type": ["Electrician", "ElectricalContractor"],
+            "@id": "https://www.integrityevsolutions.com/#business",
+            "name": "Integrity EV Solutions",
+            "description": "Professional EV charger installation and electrical services in Georgia. Tesla Certified Installer.",
+            "url": "https://www.integrityevsolutions.com/",
+            "telephone": "+1-470-262-2660",
+            "email": "integrityevsolutions@gmail.com",
+            "priceRange": "$$",
+            "areaServed": [
+              { "@type": "State", "name": "Georgia" },
+              { "@type": "City", "name": "Atlanta" },
+              { "@type": "City", "name": "Alpharetta" },
+              { "@type": "City", "name": "Roswell" },
+              { "@type": "City", "name": "Marietta" },
+              { "@type": "City", "name": "Flowery Branch" }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Flowery Branch",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 34.17846,
+              "longitude": -83.90915
+            },
+            "serviceType": [
+              "EV Charger Installation",
+              "Tesla Wall Connector Installation",
+              "Tesla Powerwall Installation",
+              "Electrical Panel Upgrades",
+              "Commercial EV Charging",
+              "Generator Installation",
+              "General Electrical Work"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "license",
+                "name": "Georgia Licensed Electrician",
+                "recognizedBy": { "@type": "Organization", "name": "State of Georgia" },
+                "identifier": "EN217457"
+              },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Wall Connector Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "ChargePoint Certified" },
+              { "@type": "EducationalOccupationalCredential", "name": "Eaton Surge Certified" }
+            ],
+            "parentOrganization": { "@id": "https://www.integrityevsolutions.com/#org" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.integrityevsolutions.com/#cody",
+            "name": "Cody Lander",
+            "jobTitle": "Owner & Licensed Electrician",
+            "worksFor": { "@id": "https://www.integrityevsolutions.com/#business" },
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Georgia Electrical License",
+              "identifier": "EN217457"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="canonical" href="https://www.integrityevsolutions.com/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/integrity-logo.png?v=20260601" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/integrity-logo.png?v=20260601" />
+    <link rel="manifest" href="/site.webmanifest?v=20260601" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <noscript
+      ><img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=26026085723726434&ev=PageView&noscript=1"
+    /></noscript>
+    <div class="min-h-screen bg-background pb-24 md:pb-0">
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-16 md:h-20">
+            <a class="flex items-center gap-3" href="/"
+              ><img src="/images/logo.png" alt="Integrity EV Solutions Logo" class="w-12 h-12" />
+              <div>
+                <div class="font-bold text-xl text-foreground">Integrity EV Solutions</div>
+                <div class="text-xs text-muted-foreground">Licensed &amp; Certified</div>
+              </div></a
+            >
+            <div class="hidden lg:flex items-center gap-8">
+              <div class="relative" data-dropdown="true">
+                <button class="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+                  Services<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down w-4 h-4 transition-transform"
+                    data-dropdown-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+                <div data-dropdown-panel="true" class="absolute top-full left-0 pt-2 w-64 hidden">
+                  <div class="bg-white rounded-lg shadow-xl border border-border py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/tesla-powerwall/"
+                      >Tesla Powerwall</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/residential-ev-charging/"
+                      >Residential EV Charging</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/commercial-ev-charging/"
+                      >Commercial EV Charging</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/generator-installation/"
+                      >Generator Installation</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/electrical-panel-upgrades/"
+                      >Panel Upgrades</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/general-electrical/"
+                      >General Electrical</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <a href="/#work" class="text-foreground hover:text-primary transition-colors font-medium">Our Work</a
+              ><a href="/#testimonials" class="text-foreground hover:text-primary transition-colors font-medium">Testimonials</a
+              ><a href="/#contact" class="text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+              <div class="text-right">
+                <div class="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone w-4 h-4"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path></svg
+                  ><a href="tel:4702622660" class="hover:text-primary transition-colors">470-262-2660</a>
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                >
+                  24/7 Emergency Service
+                </div>
+              </div>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl h-10 px-4 py-2 bg-gradient-accent glow-accent hover:scale-105 transition-all duration-300 font-semibold"
+                data-goto-contact="true"
+              >
+                Free Estimate
+              </button>
+            </div>
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10 lg:hidden"
+              data-menu-toggle="true"
+              aria-label="Toggle menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-menu w-6 h-6"
+                data-menu-icon="open"
+              >
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line></svg
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x w-6 h-6 hidden"
+                data-menu-icon="close"
+              >
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          data-menu-panel="true"
+          class="hidden lg:hidden absolute top-full left-0 right-0 bg-white backdrop-blur-md border-b border-border shadow-lg animate-in fade-in slide-in-from-top duration-300"
+        >
+          <div class="container mx-auto px-4 p-4 space-y-4">
+            <div class="border-b border-border pb-4">
+              <p class="text-sm font-semibold text-muted-foreground mb-2">Services</p>
+              <a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/tesla-powerwall/"
+                >Tesla Powerwall</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/residential-ev-charging/"
+                >Residential EV Charging</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/commercial-ev-charging/"
+                >Commercial EV Charging</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/generator-installation/"
+                >Generator Installation</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/electrical-panel-upgrades/"
+                >Panel Upgrades</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/general-electrical/"
+                >General Electrical</a
+              >
+            </div>
+            <a href="/#work" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Our Work</a
+            ><a href="/#testimonials" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Testimonials</a
+            ><a href="/#contact" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+            <div class="pt-4 border-t border-border space-y-3">
+              <div class="flex items-center gap-2 text-foreground font-semibold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone w-4 h-4"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><a href="tel:4702622660" class="hover:text-primary transition-colors">470-262-2660</a>
+              </div>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl h-10 px-4 py-2 w-full bg-gradient-accent glow-accent font-semibold"
+                data-goto-contact="true"
+              >
+                Get Free Estimate
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main role="main">
+        <section class="relative min-h-screen bg-gradient-to-br from-emerald-600 via-green-700 to-emerald-800 overflow-hidden">
+          <div class="absolute inset-0 opacity-15">
+            <div
+              class="absolute inset-0 animate-pulse"
+              style="
+                background-image: url(&quot;data:image/svg+xml,%3Csvg width=&#x27;80&#x27; height=&#x27;80&#x27; viewBox=&#x27;0 0 80 80&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%3E%3Cg fill=&#x27;none&#x27; fill-rule=&#x27;evenodd&#x27;%3E%3Cg fill=&#x27;%23ffffff&#x27; fill-opacity=&#x27;0.4&#x27;%3E%3Cpath d=&#x27;M0 0h20v20H0zM20 20h20v20H20zM40 40h20v20H40zM60 60h20v20H60z&#x27;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+              "
+            ></div>
+          </div>
+          <div class="absolute inset-0 overflow-hidden">
+            <div
+              class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full blur-xl animate-bounce"
+              style="animation-delay: 1s; animation-duration: 3s"
+            ></div>
+            <div
+              class="absolute top-40 right-20 w-20 h-20 bg-gradient-to-r from-green-400/30 to-emerald-500/30 rounded-full blur-lg animate-bounce"
+              style="animation-delay: 2s; animation-duration: 4s"
+            ></div>
+            <div
+              class="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-green-400/25 to-emerald-500/25 rounded-full blur-xl animate-bounce"
+              style="animation-delay: 0.5s; animation-duration: 3.5s"
+            ></div>
+          </div>
+          <div class="relative z-10 flex items-center justify-center min-h-screen">
+            <div class="container mx-auto px-4 py-20">
+              <div class="max-w-5xl mx-auto text-center text-white">
+                <div class="flex justify-center gap-3 mb-6 flex-wrap fade-in-up">
+                  <div
+                    class="inline-flex items-center rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-primary hover:bg-primary/80 bg-gradient-to-r from-yellow-400/90 to-orange-500/90 text-gray-900 border-2 border-yellow-300/50 hover:from-yellow-300 hover:to-orange-400 transition-all backdrop-blur-sm px-4 py-2 font-semibold shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-shield w-4 h-4 mr-2"
+                    >
+                      <path
+                        d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                      ></path></svg
+                    >Licensed &amp; Insured
+                  </div>
+                  <div
+                    class="inline-flex items-center rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-primary hover:bg-primary/80 bg-gradient-to-r from-red-500/90 to-red-700/90 text-white border-2 border-red-400/50 hover:from-red-400 hover:to-red-600 transition-all backdrop-blur-sm px-4 py-2 font-semibold shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-award w-4 h-4 mr-2"
+                    >
+                      <path
+                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"
+                      ></path>
+                      <circle cx="12" cy="8" r="6"></circle></svg
+                    >Tesla Certified
+                  </div>
+                  <div
+                    class="inline-flex items-center rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-primary hover:bg-primary/80 bg-gradient-to-r from-cyan-400/90 to-blue-500/90 text-white border-2 border-cyan-300/50 hover:from-cyan-300 hover:to-blue-400 transition-all backdrop-blur-sm px-4 py-2 font-semibold shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-award w-4 h-4 mr-2"
+                    >
+                      <path
+                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"
+                      ></path>
+                      <circle cx="12" cy="8" r="6"></circle></svg
+                    >Certified Installers
+                  </div>
+                  <div
+                    class="inline-flex items-center rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-primary hover:bg-primary/80 bg-gradient-to-r from-green-400/90 to-emerald-500/90 text-white border-2 border-green-300/50 hover:from-green-300 hover:to-emerald-400 transition-all backdrop-blur-sm px-4 py-2 font-semibold shadow-lg"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-clock w-4 h-4 mr-2"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline></svg
+                    >Same-Day Service
+                  </div>
+                </div>
+                <div class="fade-in-up flex flex-col md:flex-row items-center justify-center gap-6 mb-8" style="animation-delay: 0.2s">
+                  <div class="relative w-28 sm:w-32 md:w-36">
+                    <div class="absolute -top-2 -left-2 w-full h-full bg-green-400/40 rounded-xl -rotate-6"></div>
+                    <div class="absolute -bottom-2 -right-2 w-full h-full bg-emerald-700/40 rounded-xl rotate-6"></div>
+                    <img
+                      src="/cody-lander.jpg"
+                      alt="Cody Lander, Owner of Integrity EV Solutions - Licensed Electrician in Georgia"
+                      width="144"
+                      height="144"
+                      class="relative w-full rounded-xl border-4 border-white shadow-2xl"
+                      fetchpriority="high"
+                    />
+                    <div class="absolute bottom-1 right-1 bg-emerald-700 text-white px-2 py-0.5 rounded-md shadow-md">
+                      <p class="text-xs font-semibold leading-tight">Cody Lander</p>
+                      <p class="text-[10px]">Owner</p>
+                    </div>
+                  </div>
+                  <div class="text-center md:text-left">
+                    <p class="text-white text-lg md:text-xl font-semibold mb-1">⭐⭐⭐⭐⭐ Rated 5.0/5 stars</p>
+                    <p class="text-white/90 text-base mb-2 text-balance">Hundreds of happy customers across Georgia</p>
+                    <p class="text-white/80 text-sm">🏛️ Georgia Licensed Electrical Contractor #EN217457</p>
+                  </div>
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.4s">
+                  <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+                    Professional Electrical<span class="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent"
+                      >&amp; EV Solutions</span
+                    >
+                  </h1>
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.5s">
+                  <p class="text-xl md:text-2xl mb-10 text-white max-w-4xl mx-auto leading-relaxed">
+                    Georgia homeowners trust us for EV chargers, Tesla Powerwall, generators, panel upgrades &amp; full electrical services
+                    — done right the first time.
+                  </p>
+                </div>
+                <div class="fade-in-up flex flex-col sm:flex-row gap-4 justify-center items-center" style="animation-delay: 0.6s">
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary-glow rounded-md bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-gray-900 hover:from-yellow-300 hover:via-orange-400 hover:to-red-400 cta-super text-xl px-12 py-7 h-auto font-bold shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 border-2 border-yellow-300/50"
+                    data-scroll="contact"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-zap w-6 h-6 mr-3"
+                    >
+                      <path
+                        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                      ></path></svg
+                    >🚀 Get My Free Estimate<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-chevron-right w-5 h-5 ml-2"
+                    >
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg></button
+                  ><button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 rounded-md bg-white/90 border-2 border-white text-gray-900 hover:bg-white hover:text-gray-800 backdrop-blur-sm scale-on-hover text-lg px-8 py-7 h-auto font-semibold shadow-lg transition-all duration-300"
+                    data-scroll="work"
+                  >
+                    📸 View Our Work
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-32 opacity-25">
+            <svg class="w-full h-full" viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 60 L100 60 L120 40 L140 80 L160 60 L300 60 L320 40 L340 80 L360 60 L500 60 L520 40 L540 80 L560 60 L700 60 L720 40 L740 80 L760 60 L900 60 L920 40 L940 80 L960 60 L1200 60"
+                stroke="white"
+                stroke-width="3"
+                fill="none"
+              ></path>
+              <circle cx="200" cy="60" r="5" fill="white"></circle>
+              <circle cx="400" cy="60" r="5" fill="white"></circle>
+              <circle cx="600" cy="60" r="5" fill="white"></circle>
+              <circle cx="800" cy="60" r="5" fill="white"></circle>
+              <circle cx="1000" cy="60" r="5" fill="white"></circle>
+            </svg>
+          </div>
+        </section>
+        <section id="work" class="py-20 bg-background">
+          <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+              <div
+                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 mb-4 bg-gradient-primary text-white"
+              >
+                Our Professional Work
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                See Our Expert<span class="text-gradient-primary block">Installations</span>
+              </h2>
+              <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                From EV chargers to complete electrical systems, see why Georgia homeowners choose our certified team for their electrical
+                needs.
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
+              >
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
+                    <img
+                      src="/images/work/ford-ev-charger-installation.png"
+                      alt="Ford EV Charger Installation"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-house w-5 h-5"
+                      >
+                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                        <path
+                          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        ></path></svg
+                      ><span class="ml-2">Residential EV Charging</span>
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      Ford EV Charger Installation
+                    </h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">
+                      Professional Level 2 charger installation with electrical panel upgrade. Clean, code-compliant wiring with
+                      weather-resistant housing.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Level 2 Charging
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Panel Upgrade
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Code Compliant
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
+              >
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
+                    <img
+                      src="/images/work/tesla-wall-connector-installation.png"
+                      alt="Tesla Wall Connector Installation"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-zap w-5 h-5"
+                      >
+                        <path
+                          d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                        ></path></svg
+                      ><span class="ml-2">Tesla Certified</span>
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      Tesla Wall Connector Installation
+                    </h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">
+                      Tesla Wall Connector installed by Tesla Certified Installers. Smart connectivity, LED status indicators, and mobile
+                      app integration for optimal charging control.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Tesla Certified
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Smart Controls
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        App Integration
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
+              >
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
+                    <img
+                      src="/images/work/pathway-lighting-installation.png"
+                      alt="Pathway Lighting Installation"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-lightbulb w-5 h-5"
+                      >
+                        <path
+                          d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
+                        ></path>
+                        <path d="M9 18h6"></path>
+                        <path d="M10 22h4"></path></svg
+                      ><span class="ml-2">Outdoor Lighting</span>
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      Pathway Lighting Installation
+                    </h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">
+                      Professional outdoor lighting installation for enhanced safety and aesthetics. Energy-efficient LED fixtures with
+                      automated controls.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        LED Fixtures
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Auto Controls
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Safety First
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
+              >
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
+                    <img
+                      src="/images/work/electrical-panel-upgrades.png"
+                      alt="Electrical Panel Upgrades"
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-building w-5 h-5"
+                      >
+                        <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                        <path d="M9 22v-4h6v4"></path>
+                        <path d="M8 6h.01"></path>
+                        <path d="M16 6h.01"></path>
+                        <path d="M12 6h.01"></path>
+                        <path d="M12 10h.01"></path>
+                        <path d="M12 14h.01"></path>
+                        <path d="M16 10h.01"></path>
+                        <path d="M16 14h.01"></path>
+                        <path d="M8 10h.01"></path>
+                        <path d="M8 14h.01"></path></svg
+                      ><span class="ml-2">Panel Upgrades</span>
+                    </div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      Electrical Panel Upgrades
+                    </h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">
+                      Complete electrical panel modernization with smart breakers and surge protection. Upgraded capacity for future EV
+                      charging needs.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Smart Breakers
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Surge Protection
+                      </div>
+                      <div
+                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                      >
+                        Future Ready
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="bg-gradient-primary rounded-2xl p-8 md:p-12 text-white">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Ready for Your Professional Installation?</h3>
+                <p class="text-xl mb-6 text-white/90">Join our satisfied customers with a free, no-obligation estimate</p>
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl rounded-md bg-gradient-accent glow-accent hover:scale-105 transition-all duration-300 text-lg px-8 py-6 h-auto font-semibold"
+                  data-scroll="contact"
+                >
+                  Get My Free Estimate Today
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="services" class="py-20 bg-muted/30">
+          <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+              <div
+                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 mb-4 bg-gradient-primary text-white"
+              >
+                Professional Services
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                Complete EV &amp; Electrical<span class="text-gradient-electric block">Solutions</span>
+              </h2>
+              <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                From residential EV chargers to commercial installations, we provide comprehensive electrical services across Northern
+                Georgia and Greater Atlanta.
+              </p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm relative group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-gradient-primary opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="flex flex-col space-y-1.5 p-6 relative">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 rounded-lg bg-gradient-primary text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-house w-8 h-8"
+                      >
+                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                        <path
+                          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                    >
+                      Most Popular
+                    </div>
+                  </div>
+                  <h3 class="tracking-tight text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    Residential Solutions
+                  </h3>
+                </div>
+                <div class="p-6 pt-0 relative">
+                  <p class="text-muted-foreground mb-6 leading-relaxed">
+                    Complete home EV charger installation, Tesla Powerwall battery backup, and generator systems. We handle everything from
+                    permits to final inspection.
+                  </p>
+                  <ul class="space-y-3 mb-6">
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Level 2 EV charger installation</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Tesla Powerwall &amp; battery backup</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Whole-home generator installation</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Smart charger setup &amp; WiFi configuration</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Rebate &amp; incentive assistance</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background h-10 px-4 py-2 w-full group/btn hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    data-scroll="contact"
+                  >
+                    Get Quote<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm relative group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-gradient-electric opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="flex flex-col space-y-1.5 p-6 relative">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 rounded-lg bg-gradient-electric text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-building w-8 h-8"
+                      >
+                        <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                        <path d="M9 22v-4h6v4"></path>
+                        <path d="M8 6h.01"></path>
+                        <path d="M16 6h.01"></path>
+                        <path d="M12 6h.01"></path>
+                        <path d="M12 10h.01"></path>
+                        <path d="M12 14h.01"></path>
+                        <path d="M16 10h.01"></path>
+                        <path d="M16 14h.01"></path>
+                        <path d="M8 10h.01"></path>
+                        <path d="M8 14h.01"></path>
+                      </svg>
+                    </div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                    >
+                      Enterprise Ready
+                    </div>
+                  </div>
+                  <h3 class="tracking-tight text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    Commercial EV Solutions
+                  </h3>
+                </div>
+                <div class="p-6 pt-0 relative">
+                  <p class="text-muted-foreground mb-6 leading-relaxed">
+                    Professional commercial EV charging infrastructure for businesses, apartments, and public spaces with scalable
+                    solutions.
+                  </p>
+                  <ul class="space-y-3 mb-6">
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">DC fast charger installation</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Multi-unit charging systems</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Load management solutions</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Network integration &amp; monitoring</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Maintenance &amp; support plans</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background h-10 px-4 py-2 w-full group/btn hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    data-scroll="contact"
+                  >
+                    Get Quote<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm relative group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-gradient-accent opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="flex flex-col space-y-1.5 p-6 relative">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="p-3 rounded-lg bg-gradient-accent text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-wrench w-8 h-8"
+                      >
+                        <path
+                          d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                    >
+                      Licensed &amp; Insured
+                    </div>
+                  </div>
+                  <h3 class="tracking-tight text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    Electrical Services
+                  </h3>
+                </div>
+                <div class="p-6 pt-0 relative">
+                  <p class="text-muted-foreground mb-6 leading-relaxed">
+                    Full-service electrical work including panel upgrades, generator hookups, surge protection, and infrastructure
+                    modernization.
+                  </p>
+                  <ul class="space-y-3 mb-6">
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Electrical panel upgrades (200A+)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Generator transfer switches</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Whole-house surge protection</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Circuit troubleshooting &amp; repairs</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-circle-check-big w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      >
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-sm text-foreground">Safety inspections &amp; upgrades</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background h-10 px-4 py-2 w-full group/btn hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    data-scroll="contact"
+                  >
+                    Get Quote<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="mb-16">
+              <h3 class="text-2xl font-bold mb-8 text-foreground text-center">Explore Our Services</h3>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="/services/residential-ev-charging/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">
+                          Residential EV Charging
+                        </h4>
+                        <p class="text-sm text-muted-foreground">Level 2 home charger installation</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div></a
+                ><a href="/services/commercial-ev-charging/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">
+                          Commercial EV Charging
+                        </h4>
+                        <p class="text-sm text-muted-foreground">Charging for businesses and multi-unit properties</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div></a
+                ><a href="/services/tesla-powerwall/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">Tesla Powerwall</h4>
+                        <p class="text-sm text-muted-foreground">Battery backup for your home</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div></a
+                ><a href="/services/generator-installation/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">
+                          Generator Installation
+                        </h4>
+                        <p class="text-sm text-muted-foreground">Whole-home backup power</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div></a
+                ><a href="/services/electrical-panel-upgrades/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">Panel Upgrades</h4>
+                        <p class="text-sm text-muted-foreground">Upgrade your electrical capacity</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div></a
+                ><a href="/services/general-electrical/"
+                  ><div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+                  >
+                    <div class="p-6 flex items-center justify-between gap-4">
+                      <div>
+                        <h4 class="text-lg font-bold mb-1 text-foreground group-hover:text-primary transition-colors">
+                          General Electrical
+                        </h4>
+                        <p class="text-sm text-muted-foreground">Complete electrical services for your home</p>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right w-5 h-5 text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </div></div
+                ></a>
+              </div>
+            </div>
+            <div class="bg-card rounded-2xl p-8 glow-primary">
+              <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold mb-4 text-foreground">Certified &amp; Trusted Professionals</h3>
+                <p class="text-muted-foreground">
+                  Our team holds industry-leading certifications and maintains the highest safety standards
+                </p>
+              </div>
+              <div class="flex justify-center items-center gap-8 flex-wrap">
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">🔴</span><span class="font-semibold text-foreground">Tesla Certified Installer</span>
+                </div>
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">⚡</span><span class="font-semibold text-foreground">Tesla Wall Connector Certified</span>
+                </div>
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">🔋</span><span class="font-semibold text-foreground">ChargePoint Certified</span>
+                </div>
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">🛡️</span><span class="font-semibold text-foreground">Eaton Surge Certified</span>
+                </div>
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">📜</span><span class="font-semibold text-foreground">Licensed Electrician</span>
+                </div>
+                <div class="flex items-center gap-3 bg-muted/50 rounded-lg px-4 py-3">
+                  <span class="text-2xl">✅</span><span class="font-semibold text-foreground">Insured &amp; Bonded</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 text-center">
+              <div class="bg-gradient-accent rounded-2xl p-8 text-accent-foreground">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-shield w-8 h-8"
+                  >
+                    <path
+                      d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                    ></path>
+                  </svg>
+                  <h3 class="text-2xl font-bold">24/7 Emergency Service Available</h3>
+                </div>
+                <p class="text-lg mb-6">Electrical emergencies don&#x27;t wait. Neither do we.</p>
+                <a
+                  href="tel:4702622660"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-lg hover:shadow-xl h-11 rounded-md px-8 bg-primary text-primary-foreground hover:bg-primary-glow transition-all duration-300"
+                  >Call Now: 470-262-2660</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 bg-background" id="testimonials">
+          <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+              <div
+                class="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary hover:bg-primary/80 mb-6 bg-gradient-to-r from-emerald-600 to-green-700 text-white px-6 py-3 text-base font-semibold"
+              >
+                Customer Reviews
+              </div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-foreground leading-tight">
+                What Our Customers
+                <span class="bg-gradient-to-r from-emerald-600 to-green-700 bg-clip-text text-transparent">Are Saying</span>
+              </h2>
+              <p class="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Don&#x27;t just take our word for it. See why Georgia homeowners and businesses trust us with their electrical needs.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+              <div
+                class="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-800/20 rounded-xl border-2 border-emerald-200/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300"
+              >
+                <div class="text-4xl mb-3">⚡</div>
+                <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">500+</div>
+                <div class="text-sm text-muted-foreground font-medium">Installations Completed</div>
+              </div>
+              <div
+                class="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-800/20 rounded-xl border-2 border-emerald-200/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300"
+              >
+                <div class="text-4xl mb-3">⭐</div>
+                <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">5.0</div>
+                <div class="text-sm text-muted-foreground font-medium">Average Rating</div>
+              </div>
+              <div
+                class="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-800/20 rounded-xl border-2 border-emerald-200/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300"
+              >
+                <div class="text-4xl mb-3">🚨</div>
+                <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">24/7</div>
+                <div class="text-sm text-muted-foreground font-medium">Emergency Service</div>
+              </div>
+              <div
+                class="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-800/20 rounded-xl border-2 border-emerald-200/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300"
+              >
+                <div class="text-4xl mb-3">✅</div>
+                <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-400 mb-2">100%</div>
+                <div class="text-sm text-muted-foreground font-medium">Code Compliance</div>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 border-0 glow-primary relative overflow-hidden scale-on-hover fade-in-up"
+                style="animation-delay: 0s"
+              >
+                <div class="absolute top-4 right-4 text-primary/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-quote w-8 h-8"
+                  >
+                    <path
+                      d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                    <path
+                      d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><span class="text-xs text-muted-foreground ml-2">Aug 9</span>
+                  </div>
+                  <blockquote class="text-foreground leading-relaxed mb-6 text-base line-clamp-4">
+                    &quot;They did awesome work installing a few banks of vehicle chargers not to mention breaker boxes for our apartment
+                    remodels. Highly Recommend.&quot;
+                  </blockquote>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      AC
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-semibold text-foreground truncate">Andrew Cotton</div>
+                      <div class="text-sm text-muted-foreground truncate">Flowery Branch, GA</div>
+                      <div
+                        class="items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs mt-1 inline-block"
+                      >
+                        Vehicle Charger Installation
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 border-0 glow-primary relative overflow-hidden scale-on-hover fade-in-up"
+                style="animation-delay: 0.2s"
+              >
+                <div class="absolute top-4 right-4 text-primary/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-quote w-8 h-8"
+                  >
+                    <path
+                      d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                    <path
+                      d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><span class="text-xs text-muted-foreground ml-2">May 5</span>
+                  </div>
+                  <blockquote class="text-foreground leading-relaxed mb-6 text-base line-clamp-4">
+                    &quot;Staff is friendly, price was great, and on time.&quot;
+                  </blockquote>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      SF
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-semibold text-foreground truncate">Sergio Facyson</div>
+                      <div class="text-sm text-muted-foreground truncate">Lithonia, GA</div>
+                      <div
+                        class="items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs mt-1 inline-block"
+                      >
+                        Electrical Service
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 border-0 glow-primary relative overflow-hidden scale-on-hover fade-in-up"
+                style="animation-delay: 0.4s"
+              >
+                <div class="absolute top-4 right-4 text-primary/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-quote w-8 h-8"
+                  >
+                    <path
+                      d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                    <path
+                      d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><span class="text-xs text-muted-foreground ml-2">May 3</span>
+                  </div>
+                  <blockquote class="text-foreground leading-relaxed mb-6 text-base line-clamp-4">
+                    &quot;Excellent work. Friendly. Affordable. Professional.&quot;
+                  </blockquote>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      MJ
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-semibold text-foreground truncate">Mike Joseph</div>
+                      <div class="text-sm text-muted-foreground truncate">Gainesville, GA</div>
+                      <div
+                        class="items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs mt-1 inline-block"
+                      >
+                        Electrical Work
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 border-0 glow-primary relative overflow-hidden scale-on-hover fade-in-up"
+                style="animation-delay: 0.6000000000000001s"
+              >
+                <div class="absolute top-4 right-4 text-primary/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-quote w-8 h-8"
+                  >
+                    <path
+                      d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                    <path
+                      d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-star w-5 h-5 fill-accent text-accent"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                      ></path></svg
+                    ><span class="text-xs text-muted-foreground ml-2">Recent</span>
+                  </div>
+                  <blockquote class="text-foreground leading-relaxed mb-6 text-base line-clamp-4">
+                    &quot;Cody was amazing to work with and it didn&#x27;t feel like I was hiring some big corporation that didn&#x27;t care
+                    about you. He took the time to do proper estimates, explained what he was gonna do, and completed all the work
+                    excellently. I felt like I was working with a neighbor as he was very personable. Highly recommend!&quot;
+                  </blockquote>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      CC
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="font-semibold text-foreground truncate">Cody&#x27;s Customer</div>
+                      <div class="text-sm text-muted-foreground truncate">North Georgia</div>
+                      <div
+                        class="items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs mt-1 inline-block"
+                      >
+                        Complete Electrical Service
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-emerald-600 via-green-700 to-emerald-800 rounded-2xl p-8 text-white text-center shadow-xl">
+              <h3 class="text-2xl md:text-3xl font-bold mb-6">Join Our Satisfied Customers</h3>
+              <div class="flex justify-center items-center gap-8 mb-8 flex-wrap">
+                <div class="text-center">
+                  <div class="text-3xl font-bold">500+</div>
+                  <div class="text-white/90 text-sm">Happy Customers</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold">5+ Years</div>
+                  <div class="text-white/90 text-sm">In Business</div>
+                </div>
+              </div>
+              <p class="text-white/90 mb-8 text-lg">
+                Ready to experience the Integrity EV Solutions difference? Get your free estimate today!
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="https://nextdoor.com/pages/integrity-ev-solutions-llc-flowery-branch-ga/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="scale-on-hover"
+                  ><div
+                    class="inline-flex items-center rounded-full border focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-white text-emerald-700 px-6 py-3 cursor-pointer hover:bg-white/90 transition-colors text-base font-semibold"
+                  >
+                    ⭐⭐⭐⭐⭐ 5.0 Google Rating
+                  </div></a
+                ><span class="text-white/80">•</span>
+                <div
+                  class="inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 bg-white text-emerald-700 px-6 py-3 text-base font-semibold"
+                >
+                  Licensed &amp; Insured
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="relative overflow-hidden bg-background py-24 text-foreground" id="contact">
+          <div
+            class="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(hsl(var(--electric-cyan))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--electric-cyan))_1px,transparent_1px)] [background-size:40px_40px]"
+          ></div>
+          <div
+            class="pointer-events-none absolute -top-24 left-1/2 h-72 w-[40rem] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]"
+          ></div>
+          <div class="container relative mx-auto px-4">
+            <div class="text-center mb-16">
+              <div
+                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 mb-4 bg-gradient-primary text-white"
+              >
+                Get Your Free Estimate
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                Ready to Get<span class="text-gradient-electric block">Started?</span>
+              </h2>
+              <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Get a free, no-obligation estimate for your EV charger installation. Our certified electricians are standing by to help you
+                go electric.
+              </p>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+              <div class="lg:col-span-4 space-y-4">
+                <div
+                  class="rounded-lg text-card-foreground shadow-sm border border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div class="p-6">
+                    <div class="flex items-start space-x-4">
+                      <div class="bg-gradient-primary text-white p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-phone w-6 h-6"
+                        >
+                          <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-lg text-foreground mb-1">Call or Text</h3>
+                        <p class="text-primary font-medium mb-1">470-262-2660</p>
+                        <p class="text-sm text-muted-foreground mb-3">Mon-Fri: 8 am-6 pm</p>
+                        <button
+                          class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-xs"
+                          data-call=""
+                        >
+                          Call Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg text-card-foreground shadow-sm border border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div class="p-6">
+                    <div class="flex items-start space-x-4">
+                      <div class="bg-gradient-accent text-white p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-mail w-6 h-6"
+                        >
+                          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-lg text-foreground mb-1">Email</h3>
+                        <p class="text-primary font-medium mb-1">integrityevsolutions@gmail.com</p>
+                        <p class="text-sm text-muted-foreground mb-3">We respond within 24 hours</p>
+                        <button
+                          class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-xs"
+                          data-mailto="integrityevsolutions@gmail.com"
+                        >
+                          Send Email
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg text-card-foreground shadow-sm border border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div class="p-6">
+                    <div class="flex items-start space-x-4">
+                      <div class="bg-gradient-electric text-white p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-map-pin w-6 h-6"
+                        >
+                          <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                          ></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-lg text-foreground mb-1">Service Area</h3>
+                        <p class="text-primary font-medium mb-1">All of Northern Georgia</p>
+                        <p class="text-sm text-muted-foreground mb-3">Licensed statewide</p>
+                        <button
+                          class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 text-xs"
+                        >
+                          Check Coverage
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-gradient-primary text-white p-6 rounded-xl glow-primary">
+                  <div class="flex items-center space-x-3 mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-clock w-6 h-6"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <h3 class="font-bold text-lg">Emergency Service</h3>
+                  </div>
+                  <p class="mb-4 text-white/90">Need urgent electrical work? We offer emergency services for critical electrical issues.</p>
+                  <button
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl h-10 px-4 py-2 w-full bg-gradient-accent glow-accent"
+                    data-call=""
+                  >
+                    Call Emergency Line
+                  </button>
+                </div>
+              </div>
+              <div class="lg:col-span-8">
+                <div class="rounded-lg text-card-foreground shadow-sm border border-border bg-card overflow-hidden glow-primary">
+                  <div class="h-1.5 w-full bg-gradient-electric"></div>
+                  <div class="flex flex-col space-y-1.5 p-6">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 class="tracking-tight text-2xl font-bold text-foreground flex items-center gap-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-zap w-6 h-6 text-primary"
+                          >
+                            <path
+                              d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                            ></path></svg
+                          >Secure Estimate Request
+                        </h3>
+                        <p class="mt-2 text-muted-foreground">
+                          Submit your project details and we will contact you within 24 hours with a free, no-obligation estimate.
+                        </p>
+                      </div>
+                      <div
+                        class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-shield-check h-4 w-4"
+                        >
+                          <path
+                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                          ></path>
+                          <path d="m9 12 2 2 4-4"></path></svg
+                        >Free secure form
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-6 pt-0">
+                    <form
+                      action="https://formsubmit.co/integrityevsolutions@gmail.com"
+                      method="POST"
+                      data-contact-form="true"
+                      class="space-y-6"
+                      novalidate=""
+                    >
+                      <input type="hidden" name="_next" value="https://www.integrityevsolutions.com/thank-you" /><input
+                        type="hidden"
+                        name="_subject"
+                        value="New estimate request - Integrity EV Solutions"
+                      /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_captcha" value="false" /><input
+                        type="hidden"
+                        name="_replyto"
+                        value=""
+                      /><input type="hidden" name="utm_source" value="" /><input type="hidden" name="utm_medium" value="" /><input
+                        type="hidden"
+                        name="utm_campaign"
+                        value=""
+                      /><input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="firstName"
+                            >First Name *</label
+                          ><input
+                            class="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-1 bg-muted/40 border-border"
+                            id="firstName"
+                            name="firstName"
+                            required=""
+                            autocomplete="given-name"
+                            value=""
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="lastName"
+                            >Last Name *</label
+                          ><input
+                            class="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-1 bg-muted/40 border-border"
+                            id="lastName"
+                            name="lastName"
+                            required=""
+                            autocomplete="family-name"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="email"
+                            >Email Address *</label
+                          ><input
+                            type="email"
+                            class="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-1 bg-muted/40 border-border"
+                            id="email"
+                            name="email"
+                            required=""
+                            autocomplete="email"
+                            value=""
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="phone"
+                            >Phone Number *</label
+                          ><input
+                            type="tel"
+                            class="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-1 bg-muted/40 border-border"
+                            id="phone"
+                            name="phone"
+                            required=""
+                            autocomplete="tel"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          for="service"
+                          >Service Needed *</label
+                        ><select
+                          id="service"
+                          name="service"
+                          required=""
+                          class="mt-1 flex h-10 w-full rounded-md border border-border bg-muted/40 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          <option value="" selected="">Select the service you need</option>
+                          <option value="Residential EV Charger Installation">Residential EV Charger Installation</option>
+                          <option value="Commercial EV Charging">Commercial EV Charging</option>
+                          <option value="Tesla Powerwall Installation">Tesla Powerwall Installation</option>
+                          <option value="Electrical Panel Upgrade">Electrical Panel Upgrade</option>
+                          <option value="General Electrical Work">General Electrical Work</option>
+                          <option value="Emergency Service">Emergency Service</option>
+                          <option value="Consultation Only">Consultation Only</option>
+                        </select>
+                      </div>
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="city"
+                            >City *</label
+                          ><input
+                            class="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mt-1 bg-muted/40 border-border"
+                            id="city"
+                            name="city"
+                            required=""
+                            autocomplete="address-level2"
+                            value=""
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            for="timeline"
+                            >Preferred Timeline</label
+                          ><select
+                            id="timeline"
+                            name="timeline"
+                            class="mt-1 flex h-10 w-full rounded-md border border-border bg-muted/40 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                          >
+                            <option value="" selected="">When do you need this completed?</option>
+                            <option value="As soon as possible">As soon as possible</option>
+                            <option value="Within 1-2 weeks">Within 1-2 weeks</option>
+                            <option value="Within 1 month">Within 1 month</option>
+                            <option value="Flexible">I&#x27;m flexible</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          for="details"
+                          >Project Details</label
+                        ><textarea
+                          class="flex w-full rounded-md border px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 min-h-[120px] bg-muted/40 border-border"
+                          id="details"
+                          name="details"
+                          placeholder="Tell us about your project, any specific requirements, questions, or concerns..."
+                          maxlength="2000"
+                        ></textarea>
+                      </div>
+                      <div class="space-y-3">
+                        <button
+                          class="inline-flex items-center justify-center whitespace-nowrap rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl px-4 w-full bg-gradient-primary glow-primary hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 text-lg py-6 h-auto font-semibold gap-2"
+                          type="submit"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-send w-5 h-5"
+                          >
+                            <path
+                              d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"
+                            ></path>
+                            <path d="m21.854 2.147-10.94 10.939"></path></svg
+                          >Send Secure Estimate Request
+                        </button>
+                        <p class="text-center text-xs text-muted-foreground">Your request is sent securely to Integrity EV Solutions.</p>
+                      </div>
+                      <div
+                        class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground pt-4 border-t border-border"
+                      >
+                        <div class="flex items-center gap-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-circle-check-big w-4 h-4 text-primary"
+                          >
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span>No obligation</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-circle-check-big w-4 h-4 text-primary"
+                          >
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span>Free estimate</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-circle-check-big w-4 h-4 text-primary"
+                          >
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span>24-hour response</span>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="fixed bottom-0 left-0 right-0 z-50 p-4 md:hidden flex gap-4 bg-background/80 backdrop-blur-sm border-t border-border">
+        <a href="tel:4702622660" class="flex-1"
+          ><button
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-electric text-white hover:scale-105 glow-electric font-semibold px-4 py-2 w-full h-12 text-base"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-phone w-5 h-5"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+            >Text/Call
+          </button></a
+        ><a class="flex-1" href="/#contact"
+          ><button
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-accent text-accent-foreground hover:scale-105 glow-accent font-semibold px-4 py-2 w-full h-12 text-base"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clipboard-list w-5 h-5"
+            >
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <path d="M12 11h4"></path>
+              <path d="M12 16h4"></path>
+              <path d="M8 11h.01"></path>
+              <path d="M8 16h.01"></path></svg
+            >Free Estimate
+          </button></a
+        >
+      </div>
+      <footer class="bg-primary text-primary-foreground">
+        <div class="container mx-auto px-4 py-16">
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="lg:col-span-2">
+              <div class="flex items-center gap-3 mb-6">
+                <img src="/images/logo.png" alt="Integrity EV Solutions Logo" class="w-12 h-12" />
+                <div>
+                  <div class="font-bold text-2xl">Integrity EV Solutions</div>
+                  <div class="text-primary-foreground/80">Professional EV &amp; Electrical Services</div>
+                </div>
+              </div>
+              <p class="text-primary-foreground/80 mb-6 leading-relaxed max-w-lg">
+                Georgia&#x27;s trusted EV charger installation specialists. We provide professional, certified installations with rebate
+                assistance across Northern Georgia and the Greater Atlanta area.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/10 text-primary-foreground border-white/20"
+                >
+                  🔋 ChargePoint Certified
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/10 text-primary-foreground border-white/20"
+                >
+                  Licensed &amp; Insured
+                </div>
+              </div>
+              <div class="bg-accent/20 rounded-lg p-4 border border-accent/30">
+                <div class="flex items-center gap-2 mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-clock w-5 h-5 text-accent"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline></svg
+                  ><span class="font-semibold text-accent">24/7 Emergency Service</span>
+                </div>
+                <p class="text-sm text-primary-foreground/90">
+                  Electrical emergencies don&#x27;t wait. Call us anytime for urgent electrical issues.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-6">Contact Us</h3>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone w-5 h-5 text-accent flex-shrink-0"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <a href="tel:4702622660" class="font-semibold hover:text-accent transition-colors">470-262-2660</a>
+                    <div class="text-sm text-primary-foreground/80">Mon–Fri: 8 am–6 pm</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-5 h-5 text-accent flex-shrink-0"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <div>
+                    <a href="mailto:integrityevsolutions@gmail.com" class="hover:text-accent transition-colors"
+                      >integrityevsolutions@gmail.com</a
+                    >
+                    <div class="text-sm text-primary-foreground/80">We respond within 24 hours</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-map-pin w-5 h-5 text-accent flex-shrink-0 mt-1"
+                  >
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <div>All of Northern Georgia</div>
+                    <div class="text-sm text-primary-foreground/80">Licensed statewide</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-6">Service Areas</h3>
+              <p class="text-primary-foreground/80 mb-4">Proudly serving all communities across Northern Georgia:</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm text-primary-foreground/90">Atlanta</div>
+                <div class="text-sm text-primary-foreground/90">Alpharetta</div>
+                <div class="text-sm text-primary-foreground/90">Roswell</div>
+                <div class="text-sm text-primary-foreground/90">Marietta</div>
+                <div class="text-sm text-primary-foreground/90">Decatur</div>
+                <div class="text-sm text-primary-foreground/90">Duluth</div>
+                <div class="text-sm text-primary-foreground/90">Lawrenceville</div>
+                <div class="text-sm text-primary-foreground/90">Johns Creek</div>
+                <div class="text-sm text-primary-foreground/90">Sandy Springs</div>
+                <div class="text-sm text-primary-foreground/90">Brookhaven</div>
+              </div>
+              <div class="mt-6">
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border hover:text-accent-foreground h-10 px-4 py-2 w-full bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20"
+                  data-alert="We proudly serve all of Northern Georgia including Atlanta, Alpharetta, Roswell, Marietta, Decatur, Duluth, Lawrenceville, Johns Creek, Sandy Springs, Brookhaven, and surrounding areas. Licensed for statewide service! Call (470) 262-2660 to confirm service in your area."
+                >
+                  Check Service Availability
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-primary-foreground/20">
+          <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
+              <div>© 2025 Integrity EV Solutions. All rights reserved. | Licensed Electrical Contractor | Georgia License #EN217457</div>
+              <div class="flex gap-6">
+                <a class="hover:text-accent transition-colors" aria-label="Privacy Policy" href="/privacy-policy/">Privacy Policy</a
+                ><a class="hover:text-accent transition-colors" aria-label="Terms of Service" href="/terms-of-service/">Terms of Service</a
+                ><a class="hover:text-accent transition-colors" aria-label="Sitemap" href="/sitemap/">Sitemap</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/site.js"></script>
+  </body>
+</html>

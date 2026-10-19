@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- SPA redirect handler for GitHub Pages (defensive; main.tsx also restores) -->
+    <script>
+      (function () {
+        // Skip if ?src= already present on direct visit
+        if (window.location.search && window.location.search.indexOf("src=") !== -1) return;
+
+        // v1: structured JSON redirect
+        var raw, data;
+        try {
+          raw = sessionStorage.getItem("spa_redirect_v1");
+        } catch (e) {}
+        if (raw) {
+          // Don't remove — let main.tsx consume it (it will clean up)
+          try {
+            data = JSON.parse(raw);
+          } catch (e) {}
+          if (data && Date.now() - data.ts < 30000) {
+            var target = data.path || "/";
+            var cur = new URLSearchParams(window.location.search);
+            var red = new URLSearchParams(data.search || "");
+            red.forEach(function (v, k) {
+              if (!cur.has(k)) cur.set(k, v);
+            });
+            var qs = cur.toString();
+            if (qs) target += "?" + qs;
+            if (data.hash) target += data.hash;
+            window.history.replaceState(null, null, target);
+          }
+        } else {
+          // Backward compat: old format (only when no existing query)
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== "/" && !window.location.search) {
+            window.history.replaceState(null, null, "/" + redirect);
+          }
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to third-party origins -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <title>Page not found | Integrity EV Solutions</title>
+    <meta name="description" content="This page could not be found." />
+    <meta name="author" content="Integrity EV Solutions" />
+    <meta
+      name="keywords"
+      content="electrician Georgia, EV charger installation, generator installation, Tesla Powerwall, electrical panel upgrade, Atlanta electrician, licensed electrician, electrical services Georgia"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRSTDB8HTH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TRSTDB8HTH");
+      gtag("config", "AW-17428301350");
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "26026085723726434");
+      fbq("track", "PageView");
+    </script>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="/cody-lander.jpg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.integrityevsolutions.com/" />
+    <meta property="og:title" content="Page not found | Integrity EV Solutions" />
+    <meta property="og:description" content="This page could not be found." />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.integrityevsolutions.com/" />
+    <meta property="twitter:title" content="Page not found | Integrity EV Solutions" />
+    <meta property="twitter:description" content="This page could not be found." />
+    <meta
+      property="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.integrityevsolutions.com/#org",
+            "name": "Integrity EV Solutions",
+            "url": "https://www.integrityevsolutions.com/",
+            "logo": "https://www.integrityevsolutions.com/integrity-logo.png",
+            "foundingDate": "2022",
+            "founder": { "@id": "https://www.integrityevsolutions.com/#cody" },
+            "sameAs": ["https://www.facebook.com/IntegrityEVSolutions", "https://www.instagram.com/integrityevsolutions"]
+          },
+          {
+            "@type": ["Electrician", "ElectricalContractor"],
+            "@id": "https://www.integrityevsolutions.com/#business",
+            "name": "Integrity EV Solutions",
+            "description": "Professional EV charger installation and electrical services in Georgia. Tesla Certified Installer.",
+            "url": "https://www.integrityevsolutions.com/",
+            "telephone": "+1-470-262-2660",
+            "email": "integrityevsolutions@gmail.com",
+            "priceRange": "$$",
+            "areaServed": [
+              { "@type": "State", "name": "Georgia" },
+              { "@type": "City", "name": "Atlanta" },
+              { "@type": "City", "name": "Alpharetta" },
+              { "@type": "City", "name": "Roswell" },
+              { "@type": "City", "name": "Marietta" },
+              { "@type": "City", "name": "Flowery Branch" }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Flowery Branch",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 34.17846,
+              "longitude": -83.90915
+            },
+            "serviceType": [
+              "EV Charger Installation",
+              "Tesla Wall Connector Installation",
+              "Tesla Powerwall Installation",
+              "Electrical Panel Upgrades",
+              "Commercial EV Charging",
+              "Generator Installation",
+              "General Electrical Work"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "license",
+                "name": "Georgia Licensed Electrician",
+                "recognizedBy": { "@type": "Organization", "name": "State of Georgia" },
+                "identifier": "EN217457"
+              },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Wall Connector Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "ChargePoint Certified" },
+              { "@type": "EducationalOccupationalCredential", "name": "Eaton Surge Certified" }
+            ],
+            "parentOrganization": { "@id": "https://www.integrityevsolutions.com/#org" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.integrityevsolutions.com/#cody",
+            "name": "Cody Lander",
+            "jobTitle": "Owner & Licensed Electrician",
+            "worksFor": { "@id": "https://www.integrityevsolutions.com/#business" },
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Georgia Electrical License",
+              "identifier": "EN217457"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/integrity-logo.png?v=20260601" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/integrity-logo.png?v=20260601" />
+    <link rel="manifest" href="/site.webmanifest?v=20260601" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="robots" content="noindex" />
+  </head>
+
+  <body>
+    <noscript
+      ><img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=26026085723726434&ev=PageView&noscript=1"
+    /></noscript>
+    <div class="flex min-h-screen items-center justify-center bg-gray-100">
+      <div class="text-center">
+        <h1 class="mb-4 text-4xl font-bold">404</h1>
+        <p class="mb-4 text-xl text-gray-600">Oops! Page not found</p>
+        <a href="/" class="text-blue-500 underline hover:text-blue-700">Return to Home</a>
+      </div>
+    </div>
+    <script src="/site.js"></script>
+  </body>
+</html>
