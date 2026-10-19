@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- SPA redirect handler for GitHub Pages (defensive; main.tsx also restores) -->
+    <script>
+      (function () {
+        // Skip if ?src= already present on direct visit
+        if (window.location.search && window.location.search.indexOf("src=") !== -1) return;
+
+        // v1: structured JSON redirect
+        var raw, data;
+        try {
+          raw = sessionStorage.getItem("spa_redirect_v1");
+        } catch (e) {}
+        if (raw) {
+          // Don't remove — let main.tsx consume it (it will clean up)
+          try {
+            data = JSON.parse(raw);
+          } catch (e) {}
+          if (data && Date.now() - data.ts < 30000) {
+            var target = data.path || "/";
+            var cur = new URLSearchParams(window.location.search);
+            var red = new URLSearchParams(data.search || "");
+            red.forEach(function (v, k) {
+              if (!cur.has(k)) cur.set(k, v);
+            });
+            var qs = cur.toString();
+            if (qs) target += "?" + qs;
+            if (data.hash) target += data.hash;
+            window.history.replaceState(null, null, target);
+          }
+        } else {
+          // Backward compat: old format (only when no existing query)
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== "/" && !window.location.search) {
+            window.history.replaceState(null, null, "/" + redirect);
+          }
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to third-party origins -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <title>Electrical Panel Upgrades | Integrity EV Solutions</title>
+    <meta
+      name="description"
+      content="Professional electrical panel upgrades in Atlanta and Georgia. EV-ready panels, 200A upgrades, smart breakers. Licensed electricians. Free estimates!"
+    />
+    <meta name="author" content="Integrity EV Solutions" />
+    <meta
+      name="keywords"
+      content="electrician Georgia, EV charger installation, generator installation, Tesla Powerwall, electrical panel upgrade, Atlanta electrician, licensed electrician, electrical services Georgia"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRSTDB8HTH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TRSTDB8HTH");
+      gtag("config", "AW-17428301350");
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "26026085723726434");
+      fbq("track", "PageView");
+    </script>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="/cody-lander.jpg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.integrityevsolutions.com/services/electrical-panel-upgrades/" />
+    <meta property="og:title" content="Electrical Panel Upgrades | Integrity EV Solutions" />
+    <meta
+      property="og:description"
+      content="Professional electrical panel upgrades in Atlanta and Georgia. EV-ready panels, 200A upgrades, smart breakers. Licensed electricians. Free estimates!"
+    />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.integrityevsolutions.com/services/electrical-panel-upgrades/" />
+    <meta property="twitter:title" content="Electrical Panel Upgrades | Integrity EV Solutions" />
+    <meta
+      property="twitter:description"
+      content="Professional electrical panel upgrades in Atlanta and Georgia. EV-ready panels, 200A upgrades, smart breakers. Licensed electricians. Free estimates!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.integrityevsolutions.com/#org",
+            "name": "Integrity EV Solutions",
+            "url": "https://www.integrityevsolutions.com/",
+            "logo": "https://www.integrityevsolutions.com/integrity-logo.png",
+            "foundingDate": "2022",
+            "founder": { "@id": "https://www.integrityevsolutions.com/#cody" },
+            "sameAs": ["https://www.facebook.com/IntegrityEVSolutions", "https://www.instagram.com/integrityevsolutions"]
+          },
+          {
+            "@type": ["Electrician", "ElectricalContractor"],
+            "@id": "https://www.integrityevsolutions.com/#business",
+            "name": "Integrity EV Solutions",
+            "description": "Professional EV charger installation and electrical services in Georgia. Tesla Certified Installer.",
+            "url": "https://www.integrityevsolutions.com/",
+            "telephone": "+1-470-262-2660",
+            "email": "integrityevsolutions@gmail.com",
+            "priceRange": "$$",
+            "areaServed": [
+              { "@type": "State", "name": "Georgia" },
+              { "@type": "City", "name": "Atlanta" },
+              { "@type": "City", "name": "Alpharetta" },
+              { "@type": "City", "name": "Roswell" },
+              { "@type": "City", "name": "Marietta" },
+              { "@type": "City", "name": "Flowery Branch" }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Flowery Branch",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 34.17846,
+              "longitude": -83.90915
+            },
+            "serviceType": [
+              "EV Charger Installation",
+              "Tesla Wall Connector Installation",
+              "Tesla Powerwall Installation",
+              "Electrical Panel Upgrades",
+              "Commercial EV Charging",
+              "Generator Installation",
+              "General Electrical Work"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "license",
+                "name": "Georgia Licensed Electrician",
+                "recognizedBy": { "@type": "Organization", "name": "State of Georgia" },
+                "identifier": "EN217457"
+              },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "Tesla Certified Wall Connector Installer" },
+              { "@type": "EducationalOccupationalCredential", "name": "ChargePoint Certified" },
+              { "@type": "EducationalOccupationalCredential", "name": "Eaton Surge Certified" }
+            ],
+            "parentOrganization": { "@id": "https://www.integrityevsolutions.com/#org" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.integrityevsolutions.com/#cody",
+            "name": "Cody Lander",
+            "jobTitle": "Owner & Licensed Electrician",
+            "worksFor": { "@id": "https://www.integrityevsolutions.com/#business" },
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Georgia Electrical License",
+              "identifier": "EN217457"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="canonical" href="https://www.integrityevsolutions.com/services/electrical-panel-upgrades/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260601" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/integrity-logo.png?v=20260601" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/integrity-logo.png?v=20260601" />
+    <link rel="manifest" href="/site.webmanifest?v=20260601" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json" id="page-structured-data">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I know if I need a panel upgrade?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Signs you need an upgrade include: frequently tripping breakers, a panel with fuses instead of breakers, planning to add an EV charger, adding major appliances, or a panel rated under 200A in a modern home."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a panel upgrade take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most panel upgrades are completed in 4-8 hours. If a service upgrade from your local EMC is required, there may be additional coordination time, but we handle all of that for you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I lose power during the upgrade?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, power will be off for several hours during the upgrade. We recommend scheduling for a time when the temporary outage is convenient for your household."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between 100A and 200A panels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 200A panel provides twice the electrical capacity, essential for modern homes with EV chargers, heat pumps, electric ranges, and other high-demand appliances. It also provides headroom for future additions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you install whole-house surge protection?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We recommend and install whole-house surge protection with every panel upgrade. This protects all your electronics and appliances from power surges and lightning strikes."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <noscript
+      ><img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=26026085723726434&ev=PageView&noscript=1"
+    /></noscript>
+    <div class="min-h-screen bg-background pb-24 md:pb-0">
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-16 md:h-20">
+            <a class="flex items-center gap-3" href="/"
+              ><img src="/images/logo.png" alt="Integrity EV Solutions Logo" class="w-12 h-12" />
+              <div>
+                <div class="font-bold text-xl text-foreground">Integrity EV Solutions</div>
+                <div class="text-xs text-muted-foreground">Licensed &amp; Certified</div>
+              </div></a
+            >
+            <div class="hidden lg:flex items-center gap-8">
+              <div class="relative" data-dropdown="true">
+                <button class="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+                  Services<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down w-4 h-4 transition-transform"
+                    data-dropdown-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+                <div data-dropdown-panel="true" class="absolute top-full left-0 pt-2 w-64 hidden">
+                  <div class="bg-white rounded-lg shadow-xl border border-border py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/tesla-powerwall/"
+                      >Tesla Powerwall</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/residential-ev-charging/"
+                      >Residential EV Charging</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/commercial-ev-charging/"
+                      >Commercial EV Charging</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/generator-installation/"
+                      >Generator Installation</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/electrical-panel-upgrades/"
+                      >Panel Upgrades</a
+                    ><a
+                      class="block px-4 py-2 text-foreground hover:bg-muted hover:text-primary transition-colors"
+                      href="/services/general-electrical/"
+                      >General Electrical</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <a href="/#work" class="text-foreground hover:text-primary transition-colors font-medium">Our Work</a
+              ><a href="/#testimonials" class="text-foreground hover:text-primary transition-colors font-medium">Testimonials</a
+              ><a href="/#contact" class="text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+              <div class="text-right">
+                <div class="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone w-4 h-4"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path></svg
+                  ><a href="tel:4702622660" class="hover:text-primary transition-colors">470-262-2660</a>
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
+                >
+                  24/7 Emergency Service
+                </div>
+              </div>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl h-10 px-4 py-2 bg-gradient-accent glow-accent hover:scale-105 transition-all duration-300 font-semibold"
+                data-goto-contact="true"
+              >
+                Free Estimate
+              </button>
+            </div>
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10 lg:hidden"
+              data-menu-toggle="true"
+              aria-label="Toggle menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-menu w-6 h-6"
+                data-menu-icon="open"
+              >
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line></svg
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-x w-6 h-6 hidden"
+                data-menu-icon="close"
+              >
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          data-menu-panel="true"
+          class="hidden lg:hidden absolute top-full left-0 right-0 bg-white backdrop-blur-md border-b border-border shadow-lg animate-in fade-in slide-in-from-top duration-300"
+        >
+          <div class="container mx-auto px-4 p-4 space-y-4">
+            <div class="border-b border-border pb-4">
+              <p class="text-sm font-semibold text-muted-foreground mb-2">Services</p>
+              <a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/tesla-powerwall/"
+                >Tesla Powerwall</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/residential-ev-charging/"
+                >Residential EV Charging</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/commercial-ev-charging/"
+                >Commercial EV Charging</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/generator-installation/"
+                >Generator Installation</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/electrical-panel-upgrades/"
+                >Panel Upgrades</a
+              ><a class="block py-2 text-foreground hover:text-primary transition-colors" href="/services/general-electrical/"
+                >General Electrical</a
+              >
+            </div>
+            <a href="/#work" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Our Work</a
+            ><a href="/#testimonials" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Testimonials</a
+            ><a href="/#contact" class="block py-2 text-foreground hover:text-primary transition-colors font-medium">Contact</a>
+            <div class="pt-4 border-t border-border space-y-3">
+              <div class="flex items-center gap-2 text-foreground font-semibold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone w-4 h-4"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><a href="tel:4702622660" class="hover:text-primary transition-colors">470-262-2660</a>
+              </div>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl h-10 px-4 py-2 w-full bg-gradient-accent glow-accent font-semibold"
+                data-goto-contact="true"
+              >
+                Get Free Estimate
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="relative pt-20 pb-16 bg-gradient-to-br from-emerald-600 via-green-700 to-emerald-800 overflow-hidden">
+        <div class="absolute inset-0 opacity-15">
+          <div
+            class="absolute inset-0"
+            style="
+              background-image: url(&quot;data:image/svg+xml,%3Csvg width=&#x27;80&#x27; height=&#x27;80&#x27; viewBox=&#x27;0 0 80 80&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%3E%3Cg fill=&#x27;none&#x27; fill-rule=&#x27;evenodd&#x27;%3E%3Cg fill=&#x27;%23ffffff&#x27; fill-opacity=&#x27;0.4&#x27;%3E%3Cpath d=&#x27;M0 0h20v20H0zM20 20h20v20H20zM40 40h20v20H40zM60 60h20v20H60z&#x27;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+            "
+          ></div>
+        </div>
+        <div class="container mx-auto px-4 pt-12 relative z-10">
+          <nav class="mb-6 text-sm text-white/80">
+            <a class="hover:text-white transition-colors" href="/">Home</a><span class="mx-2">/</span
+            ><span class="text-white">Electrical Panel Upgrades</span>
+          </nav>
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="max-w-xl">
+              <div
+                class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary hover:bg-primary/80 mb-4 bg-gradient-to-r from-yellow-400/90 to-orange-500/90 text-gray-900 border-0"
+              >
+                EV-Ready Upgrades
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Electrical Panel Upgrades</h1>
+              <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl">
+                Modernize your electrical system for EV charging, home additions, and future-ready capacity.
+              </p>
+              <div class="flex flex-wrap gap-3 mb-8">
+                <div
+                  class="inline-flex items-center rounded-full text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/20 text-white border border-white/30 px-3 py-1.5"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-shield w-4 h-4 mr-2"
+                  >
+                    <path
+                      d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                    ></path></svg
+                  >Licensed &amp; Insured
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/20 text-white border border-white/30 px-3 py-1.5"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-award w-4 h-4 mr-2"
+                  >
+                    <path
+                      d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"
+                    ></path>
+                    <circle cx="12" cy="8" r="6"></circle></svg
+                  >Tesla Certified
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/20 text-white border border-white/30 px-3 py-1.5"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-clock w-4 h-4 mr-2"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline></svg
+                  >Same-Day Service
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary-glow hover:shadow-xl rounded-md bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-gray-900 hover:from-yellow-300 hover:via-orange-400 hover:to-red-400 text-lg px-8 py-6 h-auto font-bold shadow-2xl"
+                  href="/#contact"
+                  >Get Free Estimate<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right w-5 h-5 ml-2"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path></svg></a
+                ><a
+                  href="tel:4702622660"
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground rounded-md bg-white/90 border-2 border-white text-gray-900 hover:bg-white text-lg px-8 py-6 h-auto font-semibold"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone w-5 h-5 mr-2"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path></svg
+                  >470-262-2660</a
+                >
+              </div>
+            </div>
+            <div class="hidden lg:block">
+              <img
+                src="/images/services/electrical-panel-upgrades.jpg"
+                alt="Electrical Panel Upgrades"
+                class="rounded-2xl shadow-2xl w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div class="lg:hidden mt-8">
+            <img
+              src="/images/services/electrical-panel-upgrades.jpg"
+              alt="Electrical Panel Upgrades"
+              class="rounded-xl shadow-xl w-full h-48 sm:h-56 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+      <main class="container mx-auto px-4 py-16">
+        <section class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold mb-6 text-foreground">About This Service</h2>
+          <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+            Your electrical panel is the heart of your home&#x27;s power system. Many older homes have 100A or 150A panels that struggle to
+            support modern demands like EV chargers, heat pumps, and smart home systems. Our panel upgrade services bring your electrical
+            infrastructure into the 21st century with increased capacity, modern safety features, and EV-ready circuits. Whether you&#x27;re
+            preparing for an EV charger, adding square footage, or simply upgrading an outdated panel, our licensed electricians deliver
+            safe, code-compliant installations that pass inspection the first time.
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">100A to 200A+ panel upgrades</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">EV-ready circuit pre-installation</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Smart breaker compatibility</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Whole-house surge protection</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Arc-fault (AFCI) and ground-fault (GFCI) protection</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Code-compliant installation with permits</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Same-day service for urgent needs</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-muted/50 rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-check-big w-6 h-6 text-primary flex-shrink-0 mt-0.5"
+              >
+                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                <path d="m9 11 3 3L22 4"></path></svg
+              ><span class="text-foreground">Clean, labeled panel organization</span>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold mb-6 text-foreground text-center">Our Certifications</h2>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div
+              class="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base px-4 py-2"
+            >
+              Licensed Georgia Electrician
+            </div>
+            <div
+              class="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base px-4 py-2"
+            >
+              Tesla Certified Installer
+            </div>
+            <div
+              class="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base px-4 py-2"
+            >
+              Eaton Surge Certified
+            </div>
+            <div
+              class="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base px-4 py-2"
+            >
+              Insured &amp; Bonded
+            </div>
+          </div>
+        </section>
+        <section class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-foreground text-center">Our Installation Process</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm relative overflow-hidden group hover:shadow-lg transition-all"
+            >
+              <div class="p-6">
+                <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">1</div>
+                <h3 class="text-xl font-bold mb-3 text-foreground">Load Assessment</h3>
+                <p class="text-muted-foreground">
+                  We evaluate your current panel, calculate your electrical load, and determine the right upgrade for your needs.
+                </p>
+              </div>
+            </div>
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm relative overflow-hidden group hover:shadow-lg transition-all"
+            >
+              <div class="p-6">
+                <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">2</div>
+                <h3 class="text-xl font-bold mb-3 text-foreground">Permitting &amp; Utility Coordination</h3>
+                <p class="text-muted-foreground">
+                  We handle permits and coordinate with your local EMC for any required service upgrades or meter changes.
+                </p>
+              </div>
+            </div>
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm relative overflow-hidden group hover:shadow-lg transition-all"
+            >
+              <div class="p-6">
+                <div class="absolute top-4 right-4 text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">3</div>
+                <h3 class="text-xl font-bold mb-3 text-foreground">Professional Installation</h3>
+                <p class="text-muted-foreground">
+                  Our team installs your new panel with clean wiring, proper labeling, and surge protection. We pass inspection guaranteed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-foreground text-center">Frequently Asked Questions</h2>
+          <div class="w-full">
+            <div class="border-b" data-state="closed">
+              <h3 class="flex">
+                <button
+                  type="button"
+                  id="faq-trigger-0"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-0"
+                  data-faq-trigger="true"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-medium text-foreground transition-all hover:underline"
+                >
+                  How do I know if I need a panel upgrade?<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    data-faq-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="faq-panel-0"
+                role="region"
+                aria-labelledby="faq-trigger-0"
+                data-faq-panel="true"
+                aria-hidden="true"
+                class="grid transition-[grid-template-rows,visibility] duration-200 ease-out invisible grid-rows-[0fr]"
+              >
+                <div class="overflow-hidden text-sm text-muted-foreground">
+                  <div class="pb-4 pt-0">
+                    Signs you need an upgrade include: frequently tripping breakers, a panel with fuses instead of breakers, planning to add
+                    an EV charger, adding major appliances, or a panel rated under 200A in a modern home.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b" data-state="closed">
+              <h3 class="flex">
+                <button
+                  type="button"
+                  id="faq-trigger-1"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-1"
+                  data-faq-trigger="true"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-medium text-foreground transition-all hover:underline"
+                >
+                  How long does a panel upgrade take?<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    data-faq-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="faq-panel-1"
+                role="region"
+                aria-labelledby="faq-trigger-1"
+                data-faq-panel="true"
+                aria-hidden="true"
+                class="grid transition-[grid-template-rows,visibility] duration-200 ease-out invisible grid-rows-[0fr]"
+              >
+                <div class="overflow-hidden text-sm text-muted-foreground">
+                  <div class="pb-4 pt-0">
+                    Most panel upgrades are completed in 4-8 hours. If a service upgrade from your local EMC is required, there may be
+                    additional coordination time, but we handle all of that for you.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b" data-state="closed">
+              <h3 class="flex">
+                <button
+                  type="button"
+                  id="faq-trigger-2"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-2"
+                  data-faq-trigger="true"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-medium text-foreground transition-all hover:underline"
+                >
+                  Will I lose power during the upgrade?<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    data-faq-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="faq-panel-2"
+                role="region"
+                aria-labelledby="faq-trigger-2"
+                data-faq-panel="true"
+                aria-hidden="true"
+                class="grid transition-[grid-template-rows,visibility] duration-200 ease-out invisible grid-rows-[0fr]"
+              >
+                <div class="overflow-hidden text-sm text-muted-foreground">
+                  <div class="pb-4 pt-0">
+                    Yes, power will be off for several hours during the upgrade. We recommend scheduling for a time when the temporary
+                    outage is convenient for your household.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b" data-state="closed">
+              <h3 class="flex">
+                <button
+                  type="button"
+                  id="faq-trigger-3"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-3"
+                  data-faq-trigger="true"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-medium text-foreground transition-all hover:underline"
+                >
+                  What&#x27;s the difference between 100A and 200A panels?<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    data-faq-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="faq-panel-3"
+                role="region"
+                aria-labelledby="faq-trigger-3"
+                data-faq-panel="true"
+                aria-hidden="true"
+                class="grid transition-[grid-template-rows,visibility] duration-200 ease-out invisible grid-rows-[0fr]"
+              >
+                <div class="overflow-hidden text-sm text-muted-foreground">
+                  <div class="pb-4 pt-0">
+                    A 200A panel provides twice the electrical capacity, essential for modern homes with EV chargers, heat pumps, electric
+                    ranges, and other high-demand appliances. It also provides headroom for future additions.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-b" data-state="closed">
+              <h3 class="flex">
+                <button
+                  type="button"
+                  id="faq-trigger-4"
+                  aria-expanded="false"
+                  aria-controls="faq-panel-4"
+                  data-faq-trigger="true"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-medium text-foreground transition-all hover:underline"
+                >
+                  Do you install whole-house surge protection?<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    data-faq-chevron="true"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="faq-panel-4"
+                role="region"
+                aria-labelledby="faq-trigger-4"
+                data-faq-panel="true"
+                aria-hidden="true"
+                class="grid transition-[grid-template-rows,visibility] duration-200 ease-out invisible grid-rows-[0fr]"
+              >
+                <div class="overflow-hidden text-sm text-muted-foreground">
+                  <div class="pb-4 pt-0">
+                    Yes! We recommend and install whole-house surge protection with every panel upgrade. This protects all your electronics
+                    and appliances from power surges and lightning strikes.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold mb-8 text-foreground text-center">Related Services</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <a href="/services/residential-ev-charging/"
+              ><div
+                class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+              >
+                <div class="p-6">
+                  <h3 class="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">Residential EV Charging</h3>
+                  <p class="text-sm text-muted-foreground">EV charger installation after your panel upgrade</p>
+                </div>
+              </div></a
+            ><a href="/services/tesla-powerwall/"
+              ><div
+                class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+              >
+                <div class="p-6">
+                  <h3 class="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">Tesla Powerwall</h3>
+                  <p class="text-sm text-muted-foreground">Battery backup integration with your panel</p>
+                </div>
+              </div></a
+            ><a href="/services/general-electrical/"
+              ><div
+                class="rounded-lg border bg-card text-card-foreground shadow-sm h-full hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer group"
+              >
+                <div class="p-6">
+                  <h3 class="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">General Electrical</h3>
+                  <p class="text-sm text-muted-foreground">Complete electrical services for your home</p>
+                </div>
+              </div></a
+            >
+          </div>
+        </section>
+        <section id="contact-cta" class="max-w-4xl mx-auto">
+          <div class="bg-gradient-primary rounded-2xl p-8 md:p-12 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-xl mb-6 text-white/90">Get a free, no-obligation estimate for your electrical panel upgrades project today.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground hover:bg-primary-glow shadow-lg hover:shadow-xl rounded-md bg-gradient-accent glow-accent hover:scale-105 transition-all duration-300 text-lg px-8 py-6 h-auto font-semibold"
+                data-goto-contact="true"
+              >
+                Get My Free Estimate</button
+              ><a
+                href="tel:4702622660"
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground rounded-md bg-white/10 border-2 border-white text-white hover:bg-white/20 text-lg px-8 py-6 h-auto font-semibold"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone w-5 h-5 mr-2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                >Call Now</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="fixed bottom-0 left-0 right-0 z-50 p-4 md:hidden flex gap-4 bg-background/80 backdrop-blur-sm border-t border-border">
+        <a href="tel:4702622660" class="flex-1"
+          ><button
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-electric text-white hover:scale-105 glow-electric font-semibold px-4 py-2 w-full h-12 text-base"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-phone w-5 h-5"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+            >Text/Call
+          </button></a
+        ><a class="flex-1" href="/#contact"
+          ><button
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-gradient-accent text-accent-foreground hover:scale-105 glow-accent font-semibold px-4 py-2 w-full h-12 text-base"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clipboard-list w-5 h-5"
+            >
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <path d="M12 11h4"></path>
+              <path d="M12 16h4"></path>
+              <path d="M8 11h.01"></path>
+              <path d="M8 16h.01"></path></svg
+            >Free Estimate
+          </button></a
+        >
+      </div>
+      <footer class="bg-primary text-primary-foreground">
+        <div class="container mx-auto px-4 py-16">
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="lg:col-span-2">
+              <div class="flex items-center gap-3 mb-6">
+                <img src="/images/logo.png" alt="Integrity EV Solutions Logo" class="w-12 h-12" />
+                <div>
+                  <div class="font-bold text-2xl">Integrity EV Solutions</div>
+                  <div class="text-primary-foreground/80">Professional EV &amp; Electrical Services</div>
+                </div>
+              </div>
+              <p class="text-primary-foreground/80 mb-6 leading-relaxed max-w-lg">
+                Georgia&#x27;s trusted EV charger installation specialists. We provide professional, certified installations with rebate
+                assistance across Northern Georgia and the Greater Atlanta area.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/10 text-primary-foreground border-white/20"
+                >
+                  🔋 ChargePoint Certified
+                </div>
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-primary/80 bg-white/10 text-primary-foreground border-white/20"
+                >
+                  Licensed &amp; Insured
+                </div>
+              </div>
+              <div class="bg-accent/20 rounded-lg p-4 border border-accent/30">
+                <div class="flex items-center gap-2 mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-clock w-5 h-5 text-accent"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline></svg
+                  ><span class="font-semibold text-accent">24/7 Emergency Service</span>
+                </div>
+                <p class="text-sm text-primary-foreground/90">
+                  Electrical emergencies don&#x27;t wait. Call us anytime for urgent electrical issues.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-6">Contact Us</h3>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone w-5 h-5 text-accent flex-shrink-0"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <a href="tel:4702622660" class="font-semibold hover:text-accent transition-colors">470-262-2660</a>
+                    <div class="text-sm text-primary-foreground/80">Mon–Fri: 8 am–6 pm</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-5 h-5 text-accent flex-shrink-0"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <div>
+                    <a href="mailto:integrityevsolutions@gmail.com" class="hover:text-accent transition-colors"
+                      >integrityevsolutions@gmail.com</a
+                    >
+                    <div class="text-sm text-primary-foreground/80">We respond within 24 hours</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-map-pin w-5 h-5 text-accent flex-shrink-0 mt-1"
+                  >
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <div>All of Northern Georgia</div>
+                    <div class="text-sm text-primary-foreground/80">Licensed statewide</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl mb-6">Service Areas</h3>
+              <p class="text-primary-foreground/80 mb-4">Proudly serving all communities across Northern Georgia:</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm text-primary-foreground/90">Atlanta</div>
+                <div class="text-sm text-primary-foreground/90">Alpharetta</div>
+                <div class="text-sm text-primary-foreground/90">Roswell</div>
+                <div class="text-sm text-primary-foreground/90">Marietta</div>
+                <div class="text-sm text-primary-foreground/90">Decatur</div>
+                <div class="text-sm text-primary-foreground/90">Duluth</div>
+                <div class="text-sm text-primary-foreground/90">Lawrenceville</div>
+                <div class="text-sm text-primary-foreground/90">Johns Creek</div>
+                <div class="text-sm text-primary-foreground/90">Sandy Springs</div>
+                <div class="text-sm text-primary-foreground/90">Brookhaven</div>
+              </div>
+              <div class="mt-6">
+                <button
+                  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border hover:text-accent-foreground h-10 px-4 py-2 w-full bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20"
+                  data-alert="We proudly serve all of Northern Georgia including Atlanta, Alpharetta, Roswell, Marietta, Decatur, Duluth, Lawrenceville, Johns Creek, Sandy Springs, Brookhaven, and surrounding areas. Licensed for statewide service! Call (470) 262-2660 to confirm service in your area."
+                >
+                  Check Service Availability
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-primary-foreground/20">
+          <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
+              <div>© 2025 Integrity EV Solutions. All rights reserved. | Licensed Electrical Contractor | Georgia License #EN217457</div>
+              <div class="flex gap-6">
+                <a class="hover:text-accent transition-colors" aria-label="Privacy Policy" href="/privacy-policy/">Privacy Policy</a
+                ><a class="hover:text-accent transition-colors" aria-label="Terms of Service" href="/terms-of-service/">Terms of Service</a
+                ><a class="hover:text-accent transition-colors" aria-label="Sitemap" href="/sitemap/">Sitemap</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/site.js"></script>
+  </body>
+</html>
