@@ -282,16 +282,98 @@
       var errors = validate(values);
       clearErrors();
       var names = Object.keys(errors);
-      if (names.length === 0) return; // valid: let the browser send the form to FormSubmit
 
+      if (names.length > 0) {
+        e.preventDefault();
+        names.forEach(function (name) {
+          var message = document.createElement("p");
+          message.className = "text-sm text-destructive mt-1";
+          message.setAttribute("data-error", name);
+          message.textContent = errors[name];
+          form.elements[name].parentElement.appendChild(message);
+        });
+        return;
+      }
+
+      // Valid. Send in the background so we can confirm FormSubmit really accepted it,
+      // then go to the thank-you page. (If this browser cannot do that, the form is sent the
+      // normal way instead, because we return without cancelling the submit.)
+      if (!window.fetch || !window.FormData) return;
       e.preventDefault();
-      names.forEach(function (name) {
-        var message = document.createElement("p");
-        message.className = "text-sm text-destructive mt-1";
-        message.setAttribute("data-error", name);
-        message.textContent = errors[name];
-        form.elements[name].parentElement.appendChild(message);
-      });
+      sendInBackground();
     });
+
+    var sendButton = form.querySelector('button[type="submit"]');
+    var sending = false;
+
+    function setSending(on) {
+      sending = on;
+      if (!sendButton) return;
+      if (on) {
+        sendButton.setAttribute("data-html", sendButton.innerHTML);
+        sendButton.innerHTML = "Sending...";
+        sendButton.disabled = true;
+      } else {
+        sendButton.disabled = false;
+        if (sendButton.getAttribute("data-html")) sendButton.innerHTML = sendButton.getAttribute("data-html");
+      }
+    }
+
+    function showSendError(detail) {
+      var old = form.querySelector("[data-send-error]");
+      if (old) old.remove();
+      var box = document.createElement("div");
+      box.setAttribute("data-send-error", "");
+      box.setAttribute("role", "alert");
+      box.className = "text-sm text-destructive";
+      var email = (form.getAttribute("action") || "").split("/").pop();
+      box.appendChild(document.createTextNode("We could not send your request. Please call "));
+      var link = document.createElement("a");
+      link.href = "tel:" + phone;
+      link.style.textDecoration = "underline";
+      link.textContent = formatPhone(phone);
+      box.appendChild(link);
+      box.appendChild(document.createTextNode(" or email " + email + " and we will help right away."));
+      if (params.get("debug_form") === "1" && detail) {
+        var pre = document.createElement("pre");
+        pre.style.whiteSpace = "pre-wrap";
+        pre.style.fontSize = "12px";
+        pre.textContent = detail;
+        box.appendChild(pre);
+      }
+      if (sendButton && sendButton.parentNode) sendButton.parentNode.appendChild(box);
+    }
+
+    function sendInBackground() {
+      if (sending) return;
+      var old = form.querySelector("[data-send-error]");
+      if (old) old.remove();
+      setSending(true);
+
+      var payload = {};
+      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+      var endpoint = (form.getAttribute("action") || "").replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            var data = null;
+            try { data = JSON.parse(text); } catch (err) { /* not JSON */ }
+            var refused = data && (data.success === false || data.success === "false");
+            if (!res.ok || refused) {
+              throw new Error("HTTP " + res.status + " " + text.slice(0, 400));
+            }
+            window.location.href = "/thank-you/";
+          });
+        })
+        .catch(function (err) {
+          setSending(false);
+          showSendError(String(err && err.message ? err.message : err));
+        });
+    }
   }
 })();
