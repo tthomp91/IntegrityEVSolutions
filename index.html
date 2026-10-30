@@ -217,6 +217,17 @@
       content="https://storage.googleapis.com/gpt-engineer-file-uploads/gtGoGfp5TFdeN5Cd8MngjemUqJU2/social-images/social-1757547517521-logo.png"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .work-zoom-hint{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
+      [data-lightbox]:hover .work-zoom-hint,[data-lightbox]:focus-visible .work-zoom-hint{opacity:1}
+      @media (hover:none){.work-zoom-hint{opacity:1}}
+      #lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.9);padding:16px;cursor:zoom-out}
+      #lb.open{display:flex}
+      #lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+      #lb button{position:absolute;top:12px;right:16px;background:rgba(255,255,255,.15);color:#fff;border:0;width:44px;height:44px;border-radius:999px;font-size:28px;line-height:1;cursor:pointer}
+      #lb button:hover{background:rgba(255,255,255,.3)}
+    </style>
+
   </head>
 
   <body>
@@ -636,270 +647,139 @@
               </p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-              <div
-                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
-              >
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
                 <div class="p-0">
-                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
-                    <img
-                      src="/images/work/ford-ev-charger-installation.png"
-                      alt="Ford EV Charger Installation"
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div
-                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-house w-5 h-5"
-                      >
-                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
-                        <path
-                          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                        ></path></svg
-                      ><span class="ml-2">Residential EV Charging</span>
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Tesla Wall Connector Installation">
+                    <img src="/images/work/tesla-wall-connector-installation.png" alt="Tesla Wall Connector Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg><span class="ml-2">Tesla Certified</span>
                     </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
                   </div>
                   <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      Ford EV Charger Installation
-                    </h3>
-                    <p class="text-muted-foreground mb-4 leading-relaxed">
-                      Professional Level 2 charger installation with electrical panel upgrade. Clean, code-compliant wiring with
-                      weather-resistant housing.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Level 2 Charging
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Panel Upgrade
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Code Compliant
-                      </div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Tesla Wall Connector Installation</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Tesla Wall Connector installed by Tesla Certified Installers. Smart connectivity, LED status indicators, and mobile app integration for optimal charging control.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Tesla Certified</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Smart Controls</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">App Integration</div></div>
                   </div>
                 </div>
               </div>
-              <div
-                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
-              >
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
                 <div class="p-0">
-                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
-                    <img
-                      src="/images/work/tesla-wall-connector-installation.png"
-                      alt="Tesla Wall Connector Installation"
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div
-                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-zap w-5 h-5"
-                      >
-                        <path
-                          d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
-                        ></path></svg
-                      ><span class="ml-2">Tesla Certified</span>
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Tesla Powerwall 3 Installation">
+                    <img src="/images/work/Powerwall-3-install.png" alt="Tesla Powerwall 3 Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg><span class="ml-2">Tesla Powerwall</span>
                     </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
                   </div>
                   <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      Tesla Wall Connector Installation
-                    </h3>
-                    <p class="text-muted-foreground mb-4 leading-relaxed">
-                      Tesla Wall Connector installed by Tesla Certified Installers. Smart connectivity, LED status indicators, and mobile
-                      app integration for optimal charging control.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Tesla Certified
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Smart Controls
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        App Integration
-                      </div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Tesla Powerwall 3 Installation</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Clean, code-compliant Powerwall 3 installation for whole-home battery backup, installed by certified professionals.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Powerwall 3</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Battery Backup</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Code Compliant</div></div>
                   </div>
                 </div>
               </div>
-              <div
-                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
-              >
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
                 <div class="p-0">
-                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
-                    <img
-                      src="/images/work/pathway-lighting-installation.png"
-                      alt="Pathway Lighting Installation"
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div
-                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-lightbulb w-5 h-5"
-                      >
-                        <path
-                          d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
-                        ></path>
-                        <path d="M9 18h6"></path>
-                        <path d="M10 22h4"></path></svg
-                      ><span class="ml-2">Outdoor Lighting</span>
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Powerwall 3 with Expansion">
+                    <img src="/images/work/Powerwall-3-expansion.png" alt="Tesla Powerwall 3 Expansion" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg><span class="ml-2">Tesla Powerwall</span>
                     </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
                   </div>
                   <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      Pathway Lighting Installation
-                    </h3>
-                    <p class="text-muted-foreground mb-4 leading-relaxed">
-                      Professional outdoor lighting installation for enhanced safety and aesthetics. Energy-efficient LED fixtures with
-                      automated controls.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        LED Fixtures
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Auto Controls
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Safety First
-                      </div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Powerwall 3 with Expansion</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Expanded Powerwall 3 setup for added storage capacity and longer backup runtime during outages.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Expansion Unit</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">More Capacity</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Longer Runtime</div></div>
                   </div>
                 </div>
               </div>
-              <div
-                class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary"
-              >
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
                 <div class="p-0">
-                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80">
-                    <img
-                      src="/images/work/electrical-panel-upgrades.png"
-                      alt="Electrical Panel Upgrades"
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div
-                      class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 absolute top-4 left-4 bg-gradient-accent text-accent-foreground"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-building w-5 h-5"
-                      >
-                        <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
-                        <path d="M9 22v-4h6v4"></path>
-                        <path d="M8 6h.01"></path>
-                        <path d="M16 6h.01"></path>
-                        <path d="M12 6h.01"></path>
-                        <path d="M12 10h.01"></path>
-                        <path d="M12 14h.01"></path>
-                        <path d="M16 10h.01"></path>
-                        <path d="M16 14h.01"></path>
-                        <path d="M8 10h.01"></path>
-                        <path d="M8 14h.01"></path></svg
-                      ><span class="ml-2">Panel Upgrades</span>
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Humsienk Battery Backup">
+                    <img src="/images/work/Humsienk-Battery-Backup.png" alt="Humsienk Battery Backup Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg><span class="ml-2">Battery Backup</span>
                     </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
                   </div>
                   <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      Electrical Panel Upgrades
-                    </h3>
-                    <p class="text-muted-foreground mb-4 leading-relaxed">
-                      Complete electrical panel modernization with smart breakers and surge protection. Upgraded capacity for future EV
-                      charging needs.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Smart Breakers
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Surge Protection
-                      </div>
-                      <div
-                        class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs"
-                      >
-                        Future Ready
-                      </div>
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Humsienk Battery Backup</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Home battery backup system installed with neat wiring and proper protection, keeping essential circuits powered when the grid goes down.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Battery Storage</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Backup Power</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Clean Install</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Ford EV Charger Installation">
+                    <img src="/images/work/ford-ev-charger-installation.png" alt="Ford EV Charger Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span class="ml-2">Residential EV Charging</span>
                     </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Ford EV Charger Installation</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Professional Level 2 charger installation with electrical panel upgrade. Clean, code-compliant wiring with weather-resistant housing.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Level 2 Charging</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Panel Upgrade</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Code Compliant</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Electrical Panel Upgrades" style="background:#f1f5f9">
+                    <img src="/images/work/electrical-panel-upgrades.png" alt="Electrical Panel Upgrades" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-contain" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg><span class="ml-2">Panel Upgrades</span>
+                    </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Electrical Panel Upgrades</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Complete electrical panel modernization with smart breakers and surge protection. Upgraded capacity for future EV charging needs.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Smart Breakers</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Surge Protection</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Future Ready</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Sub-Panel Installation">
+                    <img src="/images/work/Sub-Panel-Install.png" alt="Sub-Panel Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg><span class="ml-2">Sub-Panel</span>
+                    </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Sub-Panel Installation</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Sub-panel installed to add circuit capacity for new loads, with clearly labeled breakers and code-compliant wiring.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Added Capacity</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Labeled Circuits</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Code Compliant</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-card text-card-foreground shadow-sm group hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border-0 glow-primary">
+                <div class="p-0">
+                  <div class="relative overflow-hidden rounded-t-lg h-64 md:h-80 cursor-zoom-in" data-lightbox role="button" tabindex="0" aria-label="Enlarge photo: Pathway Lighting Installation">
+                    <img src="/images/work/pathway-lighting-installation.png" alt="Pathway Lighting Installation" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent absolute top-4 left-4 bg-gradient-accent text-accent-foreground pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide w-5 h-5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg><span class="ml-2">Outdoor Lighting</span>
+                    </div>
+                    <div class="work-zoom-hint" aria-hidden="true">Click to enlarge</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">Pathway Lighting Installation</h3>
+                    <p class="text-muted-foreground mb-4 leading-relaxed">Professional outdoor lighting installation for enhanced safety and aesthetics. Energy-efficient LED fixtures with automated controls.</p>
+                    <div class="flex flex-wrap gap-2 mb-6"><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">LED Fixtures</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Auto Controls</div><div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-xs">Safety First</div></div>
                   </div>
                 </div>
               </div>
@@ -2851,6 +2731,40 @@
         </div>
       </footer>
     </div>
+    <div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo"><button type="button" aria-label="Close">&times;</button><img alt="" /></div>
+    <script>
+      (function () {
+        var lb = document.getElementById("lb");
+        var big = lb.querySelector("img");
+        var lastFocus = null;
+        function open(el) {
+          var img = el.querySelector("img");
+          if (!img) return;
+          lastFocus = el;
+          big.src = img.currentSrc || img.src;
+          big.alt = img.alt;
+          lb.classList.add("open");
+          document.body.style.overflow = "hidden";
+          lb.querySelector("button").focus();
+        }
+        function close() {
+          lb.classList.remove("open");
+          document.body.style.overflow = "";
+          big.removeAttribute("src");
+          if (lastFocus) lastFocus.focus();
+        }
+        document.addEventListener("click", function (e) {
+          var t = e.target.closest("[data-lightbox]");
+          if (t) { open(t); return; }
+          if (lb.classList.contains("open") && lb.contains(e.target)) close();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && lb.classList.contains("open")) close();
+          var t = e.target.closest && e.target.closest("[data-lightbox]");
+          if (t && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(t); }
+        });
+      })();
+    </script>
     <script src="/site.js"></script>
   </body>
 </html>
