@@ -2795,26 +2795,30 @@
         var m = document.getElementById("cov");
         var CENTER = [34.17846, -83.90915]; // Flowery Branch, GA
         var RADIUS_M = 80467; // 50 miles
-        var map = null, circle = null, lastFocus = null;
+        var map = null, lastFocus = null;
+        function fit() {
+          // View is computed from the center point, so it works before any layers exist.
+          map.fitBounds(L.latLng(CENTER).toBounds(RADIUS_M * 2), { padding: [10, 10] });
+        }
         function build() {
           if (map || !window.L) return;
           map = L.map("coverage-map", { scrollWheelZoom: false });
+          fit();
           L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
             maxZoom: 18,
             attribution: "&copy; OpenStreetMap contributors",
           }).addTo(map);
-          circle = L.circle(CENTER, { radius: RADIUS_M, color: "#047857", weight: 3, fillColor: "#10b981", fillOpacity: 0.15 }).addTo(map);
+          L.circle(CENTER, { radius: RADIUS_M, color: "#047857", weight: 3, fillColor: "#10b981", fillOpacity: 0.15 }).addTo(map);
           L.circleMarker(CENTER, { radius: 8, color: "#fff", weight: 2, fillColor: "#047857", fillOpacity: 1 })
             .addTo(map)
             .bindPopup("Integrity EV Solutions<br>Flowery Branch, GA");
-          map.fitBounds(circle.getBounds(), { padding: [10, 10] });
         }
         function open(trigger) {
           lastFocus = trigger;
           m.classList.add("open");
           document.body.style.overflow = "hidden";
-          build();
-          if (map) setTimeout(function () { map.invalidateSize(); map.fitBounds(circle.getBounds(), { padding: [10, 10] }); }, 60);
+          try { build(); } catch (err) { console.error("Coverage map failed:", err); }
+          if (map) setTimeout(function () { map.invalidateSize(); fit(); }, 60);
           m.querySelector(".cov-x").focus();
         }
         function close() {
