@@ -265,6 +265,13 @@
         ]
       }
     </script>
+    <style>
+      /* Center the hero text now that the hero has no image */
+      .hero-center{display:block !important}
+      .hero-center > div{max-width:48rem !important;margin-left:auto !important;margin-right:auto !important;text-align:center}
+      .hero-center > div > p{margin-left:auto !important;margin-right:auto !important}
+      .hero-center > div .flex{justify-content:center}
+    </style>
   </head>
 
   <body>
@@ -481,7 +488,7 @@
             <a class="hover:text-white transition-colors" href="/">Home</a><span class="mx-2">/</span
             ><span class="text-white">General Electrical Services</span>
           </nav>
-          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center hero-center">
             <div class="max-w-xl">
               <div
                 class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary hover:bg-primary/80 mb-4 bg-gradient-to-r from-yellow-400/90 to-orange-500/90 text-gray-900 border-0"
